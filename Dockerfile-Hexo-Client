@@ -1,0 +1,24 @@
+FROM hub.tencentyun.com/yimocoding/hexo
+WORKDIR /app
+# 用户名
+ARG CODING_USER
+# 密码
+ARG CODING_PWD
+
+RUN node -v \
+    && npm -v \
+    && git --version
+
+COPY . .
+
+# 还原依赖生成html到public文件夹
+RUN npm install --registry=https://registry.npm.taobao.org \
+    && hexo g 
+# 提交代码到coding-pages
+RUN git config --global user.name 'yimo' \
+    && git config --global user.email '1280160831@qq.com' \
+    && cd public \
+    && git init \
+    && git add * \
+    && git commit -m 'update' \
+    && git push  --force --quiet https://${CODING_USER}:${CODING_PWD}@git.coding.net/yimocoding/yimocoding.git master:coding-pages 
