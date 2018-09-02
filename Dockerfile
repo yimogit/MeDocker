@@ -5,7 +5,7 @@ RUN npm install -g hexo-cli --registry=https://registry.npm.taobao.org
 # RUN mkdir -p /var/run/sshd
 # RUN /usr/sbin/sshd -D &
 
-RUN apk update && apk install -y openssh-server
+RUN apk update && apk add openssh-server
 RUN mkdir -p /var/run/sshd /root/.ssh
 RUN sed -ri 's#session    required     pam_loginuid.so#session    required     pam_loginuid.so#g' /etc/pam.d/sshd
 
