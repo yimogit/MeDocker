@@ -1,3 +1,4 @@
+#!/bin/bash
 echo 'stop container'
 docker stop $(docker ps -a -q) 
 
