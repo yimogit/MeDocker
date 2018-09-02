@@ -11,5 +11,5 @@ RUN mkdir -p /var/run/sshd /root/.ssh
 RUN /usr/sbin/sshd -D &
 
 RUN git config --global user.name 'yimo' \
-    & git config --global user.email '1280160831@qq.com' 
+    && git config --global user.email '1280160831@qq.com' 
     
