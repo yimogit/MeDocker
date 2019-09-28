@@ -1,2 +1,3 @@
 # MeDocker
-一些Docker的常用基础镜像，使用腾讯云自动根据Dockerfile构建容器
+自定义构建 .net core 基础镜像
+当前版本：.net core 2.2.2
